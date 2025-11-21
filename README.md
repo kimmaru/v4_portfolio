@@ -73,6 +73,19 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [br
    npm run serve
    ```
 
+## 🌐 Deployment
+
+This site is deployed with [Vercel](https://vercel.com).
+
+### Quick Deploy to Vercel
+
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. Vercel will automatically detect Gatsby and configure the build settings
+4. Click "Deploy" and your site will be live!
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## 🎨 Color Reference
 
 | Color          | Hex                                                                |

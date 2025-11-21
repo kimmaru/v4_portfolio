@@ -2,12 +2,12 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Brittany Chiang',
+    title: 'Kim SungJoo',
     description:
-      'Brittany Chiang is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+      'Kim SungJoo is an AI Engineer who specializes in Computer Vision & Machine Learning, building end-to-end ML pipelines from research to production deployment.',
+    siteUrl: 'https://kimmaru.github.io', // TODO: Update with actual site URL
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@kimmaru', // TODO: Update with actual Twitter username
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Kim SungJoo',
+        short_name: 'Kim SungJoo',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
