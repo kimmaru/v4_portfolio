@@ -180,6 +180,8 @@ npm run serve
 
 1. **로컬에서 빌드 테스트**
    ```bash
+   yarn build
+   # 또는
    npm run build
    ```
    로컬에서 실패하면 Vercel에서도 실패합니다.
@@ -189,8 +191,21 @@ npm run serve
    - Build Logs에서 오류 확인
 
 3. **일반적인 문제**
+
+   **GraphQL 버전 충돌 오류**
+   ```
+   Cannot use GraphQLScalarType "JSON" from another module or realm
+   ```
+   - 해결 방법: `package.json`에 이미 `resolutions`와 `overrides`가 설정되어 있습니다
+   - 로컬에서 `yarn install` 또는 `npm install`을 다시 실행하세요
+
+   **기타 문제**
    - Node 버전 불일치: `.nvmrc` 파일 확인
    - 의존성 문제: `node_modules` 삭제 후 재설치
+     ```bash
+     rm -rf node_modules yarn.lock
+     yarn install
+     ```
    - 환경 변수 누락: Vercel 대시보드에서 확인
 
 ### 성능 최적화

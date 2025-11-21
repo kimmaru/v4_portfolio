@@ -1,8 +1,8 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "yarn build",
   "outputDirectory": "public",
-  "devCommand": "npm run develop",
-  "installCommand": "npm install",
+  "devCommand": "yarn develop",
+  "installCommand": "yarn install",
   "framework": "gatsby",
   "headers": [
     {
