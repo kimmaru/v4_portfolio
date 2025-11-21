@@ -75,11 +75,5 @@
     "husky": "^6.0.0",
     "lint-staged": "^10.1.2",
     "prettier": "^2.2.1"
-  },
-  "resolutions": {
-    "graphql": "^14.7.0"
-  },
-  "overrides": {
-    "graphql": "^14.7.0"
   }
 }

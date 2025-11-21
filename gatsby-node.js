@@ -37,32 +37,36 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    reporter.panicOnBuild(`Error while running GraphQL query.`, result.errors);
     return;
   }
 
   // Create post detail pages
-  const posts = result.data.postsRemark.edges;
+  const posts = result.data.postsRemark?.edges || [];
 
   posts.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: postTemplate,
-      context: {},
-    });
+    if (node.frontmatter?.slug) {
+      createPage({
+        path: node.frontmatter.slug,
+        component: postTemplate,
+        context: {},
+      });
+    }
   });
 
   // Extract tag data from query
-  const tags = result.data.tagsGroup.group;
+  const tags = result.data.tagsGroup?.group || [];
   // Make tag pages
   tags.forEach(tag => {
-    createPage({
-      path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    });
+    if (tag.fieldValue) {
+      createPage({
+        path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
+        },
+      });
+    }
   });
 };
 
