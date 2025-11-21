@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { FiFolder, FiGithub, FiExternalLink } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
