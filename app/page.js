@@ -13,7 +13,17 @@ import Email from '@/components/Email'
 export default async function Home() {
   // Fetch data
   const featuredProjects = getSortedPostsData('featured')
-  const otherProjects = getSortedPostsData('projects')
+  const allProjects = getSortedPostsData('projects')
+  // Filter out web projects, keep only AI/ML related projects
+  const otherProjects = allProjects.filter(project => {
+    // Filter out old web projects (keep only AI/ML projects)
+    const webProjectKeywords = ['WordPress', 'React', 'TypeScript', 'Storybook', 'Ruby on Rails', 'Firebase', 'Gutenberg', 'PHP', 'Airtable', 'Stripe', 'Algolia', 'Formik', 'Yup', 'Stats Perform']
+    const tech = project.tech || []
+    const isWebProject = webProjectKeywords.some(keyword => 
+      tech.some(t => t.toLowerCase().includes(keyword.toLowerCase()))
+    )
+    return !isWebProject && project.showInProjects !== false
+  })
   const jobs = getSortedPostsData('jobs')
 
   return (
@@ -23,7 +33,7 @@ export default async function Home() {
         <main className="flex-grow">
           <Hero />
           <About />
-          <Jobs jobs={jobs} />
+          {jobs && jobs.length > 0 && <Jobs jobs={jobs} />}
           <Featured projects={featuredProjects} />
           <Projects projects={otherProjects} />
           <Contact />

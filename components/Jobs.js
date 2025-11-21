@@ -6,10 +6,15 @@ import { motion } from 'framer-motion'
 const Jobs = ({ jobs }) => {
   const [activeTabId, setActiveTabId] = useState(0)
 
+  // Hide section if no jobs data
+  if (!jobs || jobs.length === 0) {
+    return null
+  }
+
   return (
     <section id="jobs" className="max-w-[700px] mx-auto py-24 px-6 sm:px-12 md:px-24">
       <h2 className="flex items-center text-2xl sm:text-3xl font-semibold text-lightest-slate mb-10 whitespace-nowrap after:content-[''] after:block after:relative after:top-[-5px] after:w-[300px] after:h-[1px] after:bg-lightest-navy after:ml-5">
-        <span className="text-green font-mono text-xl mr-2">02.</span> Where I’ve Worked
+        <span className="text-green font-mono text-xl mr-2">02.</span> Where I've Worked
       </h2>
 
       <div className="flex flex-col md:flex-row gap-5">
