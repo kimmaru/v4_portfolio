@@ -35,7 +35,7 @@ const About = () => {
           <div className="relative w-full h-auto z-10 group-hover:translate-x-[-5px] group-hover:translate-y-[-5px] transition-transform duration-300">
             <div className="absolute inset-0 bg-green mix-blend-screen rounded transition-all duration-300 group-hover:bg-transparent"></div>
             <Image
-              src="/images/profile-v2.jpg?v=2"
+              src="/images/kim-profile.jpg"
               alt="Kim SungJoo"
               width={300}
               height={300}
