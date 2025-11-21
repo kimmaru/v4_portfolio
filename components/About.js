@@ -34,10 +34,13 @@ const About = () => {
         <div className="relative group mx-auto md:mx-0 max-w-[300px]">
           <div className="relative w-full h-auto z-10 group-hover:translate-x-[-5px] group-hover:translate-y-[-5px] transition-transform duration-300">
             <div className="absolute inset-0 bg-green mix-blend-screen rounded transition-all duration-300 group-hover:bg-transparent"></div>
-             {/* Placeholder image since we don't have 'me.jpg' yet, using a div or we can use a public placeholder */}
-            <div className="w-full aspect-square bg-gray-700 rounded grayscale hover:filter-none transition-all duration-300 flex items-center justify-center text-6xl">
-                User
-            </div>
+            <Image
+              src="/images/me.jpg"
+              alt="Kim SungJoo"
+              width={300}
+              height={300}
+              className="rounded grayscale hover:filter-none transition-all duration-300 object-cover"
+            />
           </div>
           <div className="absolute top-5 left-5 w-full h-full border-2 border-green rounded -z-10 group-hover:translate-x-[5px] group-hover:translate-y-[5px] transition-transform duration-300"></div>
         </div>

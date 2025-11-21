@@ -10,9 +10,10 @@ const Featured = ({ projects }) => {
 
       <ul className="list-none p-0 m-0">
         {projects.map((project, i) => {
-            // Resolve image path based on project ID (folder name)
-            // We copied images to public/images/featured/{id}.png
-            const imagePath = `/images/featured/${project.id}.png`
+            // Resolve image path based on project cover field from frontmatter
+            // cover field is like './demo.png', so we need to construct the public path
+            const coverFileName = project.cover ? project.cover.replace('./', '') : 'demo.png'
+            const imagePath = `/images/featured/${project.id}/${coverFileName}`
 
             return (
             <li key={i} className="relative grid grid-cols-12 items-center gap-2.5 mb-24 last:mb-0">
@@ -20,18 +21,13 @@ const Featured = ({ projects }) => {
                 <div className={`col-span-12 md:col-span-7 row-span-1 row-start-1 relative h-full ${i % 2 !== 0 ? 'md:col-start-6' : 'md:col-start-1'}`}>
                 <a href={project.external || project.github} target="_blank" rel="noreferrer" className="block w-full h-full bg-green rounded md:hover:bg-transparent transition-colors duration-300 relative before:content-[''] before:absolute before:inset-0 before:bg-navy before:mix-blend-screen before:transition-all before:duration-300 hover:before:bg-transparent z-10">
                     <div className="relative w-full aspect-[16/9] md:h-full grayscale mix-blend-multiply hover:mix-blend-normal hover:filter-none transition-all duration-300 rounded overflow-hidden">
-                        {/* Use a reliable placeholder if image fails, or conditional render */}
-                        <div className="w-full h-full bg-light-navy flex items-center justify-center text-slate">
-                             <span className="text-4xl">Featured Project</span>
-                        </div>
-                        {/* 
                         <Image 
                             src={imagePath} 
                             alt={project.title} 
                             fill 
                             className="object-cover"
-                        /> 
-                        */}
+                            sizes="(max-width: 768px) 100vw, 700px"
+                        />
                     </div>
                 </a>
                 </div>

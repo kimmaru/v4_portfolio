@@ -40,3 +40,13 @@ html {
   border-radius: 10px;
 }
 
+/* Counter for numbered headings */
+.counter-reset-section {
+  counter-reset: section;
+}
+
+.counter-reset-section section h2::before {
+  counter-increment: section;
+  content: '0' counter(section) '.';
+}
+
