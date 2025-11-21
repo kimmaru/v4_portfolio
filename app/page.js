@@ -20,7 +20,7 @@ export default async function Home() {
     <>
       <Navbar />
       <div className="flex flex-col min-h-screen">
-        <main className="flex-grow counter-reset-section">
+        <main className="flex-grow">
           <Hero />
           <About />
           <Jobs jobs={jobs} />

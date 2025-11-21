@@ -40,6 +40,8 @@ const About = () => {
               width={300}
               height={300}
               className="rounded grayscale hover:filter-none transition-all duration-300 object-cover"
+              priority
+              unoptimized
             />
           </div>
           <div className="absolute top-5 left-5 w-full h-full border-2 border-green rounded -z-10 group-hover:translate-x-[5px] group-hover:translate-y-[5px] transition-transform duration-300"></div>
